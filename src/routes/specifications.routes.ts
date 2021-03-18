@@ -1,6 +1,8 @@
 import { Router } from "express";
 
 import { createSpecificationController } from "../modules/cars/useCases/createSpecification";
+import { listSpecificationController } from "../modules/cars/useCases/listSpecification";
+
 
 const specificationsRoutes = Router();
 
@@ -9,8 +11,7 @@ specificationsRoutes.post("/", (request, response) => {
 });
 
 specificationsRoutes.get("/", (request, response) => {
-    const all = specificationsRepository.list()
-    return response.json(all);
+    return listSpecificationController.handle(request, response);
 })
 
 export { specificationsRoutes };
