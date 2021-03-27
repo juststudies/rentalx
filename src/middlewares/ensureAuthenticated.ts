@@ -22,11 +22,14 @@ export async function ensureAuthenticated(request:Request, response: Response, n
         if(!user){
             throw new AppErrors("User does not exists", 401);
         }
+<<<<<<< HEAD
 
         request.user = {
             id: user_id
         };
         
+=======
+>>>>>>> 46a039c97227bff601c7c9724993af93756e10a5
         next();
     } catch {
         throw new AppErrors("Invalid token", 401);
