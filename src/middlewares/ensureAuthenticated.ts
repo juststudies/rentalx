@@ -23,13 +23,19 @@ export async function ensureAuthenticated(request:Request, response: Response, n
             throw new AppErrors("User does not exists", 401);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Created and implemented avatar system
 
         request.user = {
             id: user_id
         };
         
+<<<<<<< HEAD
 =======
 >>>>>>> 46a039c97227bff601c7c9724993af93756e10a5
+=======
+>>>>>>> Created and implemented avatar system
         next();
     } catch {
         throw new AppErrors("Invalid token", 401);
