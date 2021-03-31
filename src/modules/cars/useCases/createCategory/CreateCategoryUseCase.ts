@@ -1,5 +1,5 @@
 import {inject, injectable} from 'tsyringe';
-import { AppErrors } from '@errors/AppErrors';
+import { AppErrors } from '@shared/errors/AppErrors';
 import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository';
 
 
