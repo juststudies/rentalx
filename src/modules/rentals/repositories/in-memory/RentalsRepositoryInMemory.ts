@@ -28,8 +28,12 @@ class RentalsRepositoryInMemory implements IRentalsRepository{
         });
 
         this.rentals.push(rental);
-
+        
         return rental;
+    }
+
+    async findById(id: string): Promise<Rental> {
+        return this.rentals.find(rental => rental.id === id);        
     }
 }
 

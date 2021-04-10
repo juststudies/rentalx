@@ -16,6 +16,9 @@
                 ],
                 "summary": "Create a category",
                 "description": "Create a new Category",
+                "security":[
+                    {"bearerAuth": []}
+                ],
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -85,6 +88,9 @@
                 ],
                 "summary": "Upload a new category",
                 "description": "Upload a new category from csv file and parse it",
+                "security":[
+                    {"bearerAuth": []}
+                ],
                 "requestBody":{
                     "content":{
                         "multipart/form-data":{
@@ -112,6 +118,9 @@
                 "tags":["Specification"],
                 "summary": "Create a specification",
                 "description": "create a new Specification",
+                "security":[
+                    {"bearerAuth": []}
+                ],
                 "requestBody":{
                     "required":true,
                     "content":{
@@ -131,6 +140,38 @@
                     }
                 }
             }
+        },
+        "sessions":{
+            "post":{
+                "tags": ["Session"],
+                "summary": "Authentication user",
+                "description": "Authentication user",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "email":{
+                                        "type": "string"
+                                    },
+                                    "password":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Email or password incorrect!"
+                    }
+                }
+            }
         }
     },
     "definitions":{
@@ -147,6 +188,15 @@
             "example": {
                 "name": "Specification name sample",
                 "description": "Specification description sample"
+            }
+        }
+    },
+    "components":{
+        "securitySchemes":{
+            "bearerAuth":{
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
