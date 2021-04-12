@@ -45,7 +45,7 @@ describe("Create a car", ()=>{
                 license_plate: "ABC-1234",
                 name: "Name Car 2"
             });
-        }).rejects.toBeInstanceOf(AppErrors);
+        }).rejects.toEqual(new AppErrors("Car already exists"));
     });
 
     it("should be able to create a car with licesen plate true by default", async()=>{

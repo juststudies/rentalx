@@ -141,6 +141,79 @@
                 }
             }
         },
+        "/cars":{
+            "post":{
+                "tags":["Car"],
+                "summary": "Create a new car",
+                "description": "Create a new car",
+                "security":[
+                    {"bearerAuth": []}
+                ],
+                "requestBody":{
+                    "required":true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/definitions/Cars"
+                            }
+                        },
+                        "responses":{
+                            "201":{
+                                "description": "Created"
+                            },
+                            "400":{
+                                "description": "Car already exists"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cars/image/{id}":{
+            "post":{
+                "tags":["Car"],
+                "summary": "Upload a car image",
+                "description": "Upload a car image",
+                "security":[
+                    {"bearerAuth": []}
+                ],
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car id",
+                        "required": true,
+                        "scheme": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "images":{
+                                        "type": "array",
+                                        "items":{
+                                            "type": "string",
+                                            "format": "binary"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Uploaded"
+                    }
+                }
+            }
+
+        },
         "sessions":{
             "post":{
                 "tags": ["Session"],
@@ -188,6 +261,32 @@
             "example": {
                 "name": "Specification name sample",
                 "description": "Specification description sample"
+            }
+        },
+        "Cars":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "type": "string"
+                },
+                "description":{
+                    "type": "string"
+                },
+                "brand":{
+                    "type": "string"
+                },
+                "daily_rate":{
+                    "type": "number"
+                },
+                "license_plate":{
+                    "type": "string"
+                },
+                "fine_amount":{
+                    "type": "number"
+                },
+                "category_id":{
+                    "type": "string"
+                }
             }
         }
     },
