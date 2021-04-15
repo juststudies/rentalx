@@ -83,7 +83,18 @@ ___
 # Listagens de alugueis para usuário
 
 **RF**
-- [] Deve ser possivel realizar a busca de todos os alugueis para o usuário.
+- [x] Deve ser possivel realizar a busca de todos os alugueis para o usuário.
 
 **RN**
-- [] O usuário deve estar logado na aplicação.
+- [x] O usuário deve estar logado na aplicação.
+
+# Recuperar senha 
+
+**RF**
+- [x] Deve ser possível o usuário recuperar a senha informando o email.
+- [x] O usuário deve receber um e-mail com o passo a passo para a recuperação da senha.
+- [x] O usuário deve conseguir inserir uma nova senha.
+
+**RN**
+- [x] O usuário deve informar uma nova senha.
+- [x] O link enviado para a recuperação de expirar em 3 horas.
